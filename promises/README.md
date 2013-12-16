@@ -19,8 +19,8 @@ getUserInfo(userId, function (user) {
 });
 ```
 
-How does promises solve my issue?
----------------------------------
+How do promises solve my issue?
+-------------------------------
 
 ```js
 var tweetPromise = getTweets("jimmy", "MY_API_KEY");
@@ -70,5 +70,6 @@ var ajaxPromised = function (url) {
 Read more
 ---------
 
+- On Promises: http://www.slideshare.net/domenicdenicola/callbacks-promises-and-coroutines-oh-my-the-evolution-of-asynchronicity-in-javascript
 - Q: https://github.com/kriskowal/q
 - ES6 promises syntax: http://www.html5rocks.com/en/tutorials/es6/promises/
