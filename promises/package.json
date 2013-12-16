@@ -1,0 +1,16 @@
+{
+  "name": "promises",
+  "version": "0.0.0",
+  "description": "HHJS promise demo",
+  "main": "promises.js",
+  "private": true,
+  "scripts": {
+    "test": "jshint test && jasmine-node test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-node": "~1.11.0",
+    "jshint": "~2.3.0"
+  }
+}
