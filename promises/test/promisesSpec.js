@@ -15,27 +15,47 @@ describe('promises', function () {
         expect(callback).toHaveBeenCalled();
     });
 
-    it('should not execute handler if not resolved', function () {
-        var defer = promises.defer();
-        defer.promise.then(callback);
+    describe('resolve', function () {
+        it('should not execute handler if not resolved', function () {
+            var defer = promises.defer();
+            defer.promise.then(callback);
 
-        expect(callback).not.toHaveBeenCalled();
+            expect(callback).not.toHaveBeenCalled();
+        });
+
+        it('should execute handler (after resolve)', function () {
+            var defer = promises.defer();
+            defer.promise.then(callback);
+            defer.resolve();
+
+            expect(callback).toHaveBeenCalled();
+        });
+
+        it('should execute only once', function () {
+            var defer = promises.defer();
+            defer.resolve();
+            defer.promise.then(callback);
+            defer.resolve();
+
+            expect(callback.callCount).toEqual(1);
+        });
     });
 
-    it('should execute handler (after resolve)', function () {
-        var defer = promises.defer();
-        defer.promise.then(callback);
-        defer.resolve();
+    describe('value passing', function () {
+        it('should pass resolved value to handler', function () {
+            var defer = promises.defer();
+            defer.promise.then(callback);
+            defer.resolve(42);
 
-        expect(callback).toHaveBeenCalled();
-    });
+            expect(callback).toHaveBeenCalledWith(42);
+        });
 
-    it('should execute only once', function () {
-        var defer = promises.defer();
-        defer.resolve();
-        defer.promise.then(callback);
-        defer.resolve();
+        it('should pass resolved value to handler', function () {
+            var defer = promises.defer();
+            defer.resolve(42);
+            defer.promise.then(callback);
 
-        expect(callback.callCount).toEqual(1);
+            expect(callback).toHaveBeenCalledWith(42);
+        });
     });
 });

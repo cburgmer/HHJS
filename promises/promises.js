@@ -1,16 +1,17 @@
 module.exports.defer = function () {
-    var resolved, resolveCallback;
+    var resolved, resolveCallback, result;
     return {
-        resolve: function () {
+        resolve: function (value) {
+            result = value;
             resolved = true;
             if (resolveCallback) {
-                resolveCallback();
+                resolveCallback(value);
             }
         },
         promise: {
             then: function (callback) {
                 if (resolved) {
-                    callback();
+                    callback(result);
                 } else {
                     resolveCallback = callback;
                 }
