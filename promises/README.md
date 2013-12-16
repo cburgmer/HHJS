@@ -67,6 +67,16 @@ var ajaxPromised = function (url) {
 };
 ```
 
+And now:
+
+```js
+var response = ajaxPromised('http://example.com/');
+
+response.then(function(response) {
+    ...
+});
+```
+
 Read more
 ---------
 
