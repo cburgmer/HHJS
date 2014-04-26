@@ -1,12 +1,12 @@
 0. Goals
-  i.  Be a good hacker
-  ii. Understand your MVC library
-  iii.Question your dependencies
-  iv. Clean design
+  1.Be a good hacker
+  2. Understand your MVC library
+  3. Question your dependencies
+  4. Clean design
 1. Demo TodoMVC app
 2. Separation of concerns
-  i.  Application components
-  ii. View
-  iii.Testing
+  1.Application components
+  2. View
+  3. Testing
 3. DOM handling
 4. Stuff I don't like
